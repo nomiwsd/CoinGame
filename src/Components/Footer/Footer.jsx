@@ -8,6 +8,7 @@ import footericon4 from '../../assets/footericon(4).png'
 export default function Footer() {
   return (
     <footer className="bg-secondarycl px-4 pt-20 pb-4">
+      <div className='max-w-screen-2xl mx-auto'>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 lg:gap-20 md:border-b  md:border-[#54616A26] pb-10">
         <div className="col-span-4 md:col-span-2 xl:cols-span-1 flex flex-col justify-start items-start gap-2 md:border-r md:border-[#54616A26] md:pr-4 lg:pr-20">
           <img src={logo} alt="Logo" />
@@ -70,7 +71,7 @@ export default function Footer() {
         <img src={footericon4} alt="" className='w-9 h-9'/>
         </div>
       </div>
-      <p className='text-footertext text-xs py-2 text-center'>©2023 bn.game ALL RIGHTS RESERVED</p>
+      <p className='text-footertext text-xs py-2 text-center'>©2023 bn.game ALL RIGHTS RESERVED</p></div>
     </footer>
   )
 }

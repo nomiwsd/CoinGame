@@ -15,6 +15,7 @@ export default {
                 footerlinks:'#C0CBD5',
                 btncl: '#3BC117B2',
                 tablecl: '#1D2736',
+                tableoddtext: '#99A4B0',
                 textcl: '#FFDE01'
             },
             fontFamily: {
