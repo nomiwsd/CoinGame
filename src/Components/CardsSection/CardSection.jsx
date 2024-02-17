@@ -7,8 +7,8 @@ import { FortuneGames, OriginalGames, TopGames } from '../../utils/data';
 export default function CardSection() {
 
   return (
-    <section className="px-4 md:px-6 lg:px-10 max-w-screen-2xl mx-auto pb-5">
-      <div className="max-w-screen-2xl">
+    <section className="px-4 md:px-6 lg:px-10  mx-auto pb-5">
+      <div className="">
         <div className='flex justify-between'> <div className='flex justify-start'><p className='text-white text-sm font-medium'>Original <span className='text-textcl'>Games</span></p></div>
           <div className='flex justify-end items-center relative h-8 mt-2'>
             <div className='relative flex justify-center items-center mr-6'>
@@ -61,7 +61,7 @@ export default function CardSection() {
           }
         </Swiper>
       </div>
-      <div className="max-w-screen-2xl py-5">
+      <div className=" py-5">
         <div className='flex justify-between'> <div className='flex justify-start'><p className='text-white text-sm font-medium'>Top <span className='text-textcl'>Games</span></p></div>
           <div className='flex justify-end items-center relative h-8 mt-2'>
             <div className='relative flex justify-center items-center mr-6'>
@@ -114,7 +114,7 @@ export default function CardSection() {
           }
         </Swiper>
       </div>
-      <div className="max-w-screen-2xl py-5">
+      <div className=" py-5">
         <div className='flex justify-between'> <div className='flex justify-start'><p className='text-white text-sm font-medium'>Fortune <span className='text-textcl'>Games</span></p></div>
           <div className='flex justify-end items-center relative h-8 mt-2'>
             <div className='relative flex justify-center items-center mr-6'>

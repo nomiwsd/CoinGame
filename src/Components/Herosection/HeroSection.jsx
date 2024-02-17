@@ -8,8 +8,8 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import { CardSections, HeroSections } from '../../utils/data';
 export default function HeroSection() {
   return (
-    <section className='px-4 md:px-6 lg:px-10 max-w-screen-2xl mx-auto pt-10 pb-5'>
-      <div className='max-w-screen-2xl'>
+    <section className='px-4 md:px-6 lg:px-10 pt-10 pb-5'>
+      <div className=''>
         <Swiper
           slidesPerView={3}
           spaceBetween={10}

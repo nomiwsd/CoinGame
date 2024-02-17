@@ -7,8 +7,8 @@ import Payment5 from '../../assets/Payment (5).png'
 import { TableData } from '../../utils/data'
 export default function TableSection() {
     return (
-        <section className="max-w-screen-2xl mx-auto px-4 md:px-6 lg:px-10 py-10">
-            <div className="max-w-screen-xl mx-auto bg-secondarycl rounded bg-cover bg-no-repeat max-h-60 flex flex-col md:flex-row justify-around items-center" style={{
+        <section className=" px-4 md:px-6 lg:px-10 py-10">
+            <div className="bg-secondarycl rounded bg-cover bg-no-repeat max-h-60 flex flex-col md:flex-row justify-around items-center" style={{
                 backgroundImage: `url(${BgImage})`,
             }}>
                 <div className='flex flex-col md:flex-row justify-around items-center  gap-10 py-4 px-4'>

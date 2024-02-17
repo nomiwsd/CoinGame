@@ -11,7 +11,7 @@ import Payment5 from '../../assets/deposit (5).png';
 
 export default function PaymentMethods() {
     return (
-        <section className="px-4 md:px-6 lg:px-10 max-w-screen-2xl mx-auto pb-10">
+        <section className="px-4 md:px-6 lg:px-10   pb-10">
             <div className='flex justify-center items-center'>
                 <div className="bg-secondarycl rounded-md px-2 py-4 max-w-screen-lg">
                     <div className="flex flex-col md:flex-row  items-center gap-2">
@@ -31,7 +31,7 @@ export default function PaymentMethods() {
                     </div>
                 </div>
             </div>
-            <div className="max-w-screen-2xl mx-auto py-5">
+            <div className="  py-5">
                 <div className='flex justify-between'> <div className='flex justify-start'><p className='text-white text-sm font-medium'>Hit <span className='text-textcl'>Games</span></p></div>
                     <div className='flex justify-end items-center relative h-8 mt-2'>
                         <div className='relative flex justify-center items-center mr-6'>
@@ -84,7 +84,7 @@ export default function PaymentMethods() {
                     }
                 </Swiper>
             </div>
-            <div className="max-w-screen-2xl mx-auto pb-5">
+            <div className="  pb-5">
                 <div className='flex justify-between'> <div className='flex justify-start'><p className='text-white text-sm font-medium'>Hot <span className='text-textcl'>Games</span></p></div>
                     <div className='flex justify-end items-center relative h-8 mt-2'>
                         <div className='relative flex justify-center items-center mr-6'>
@@ -137,7 +137,7 @@ export default function PaymentMethods() {
                     }
                 </Swiper>
             </div>
-            <div className="max-w-screen-2xl mx-auto pb-5">
+            <div className="  pb-5">
                 <div className='flex justify-between'> <div className='flex justify-start'><p className='text-white text-sm font-medium'>Cold <span className='text-textcl'>Games</span></p></div>
                     <div className='flex justify-end items-center relative h-8 mt-2'>
                         <div className='relative flex justify-center items-center mr-6'>
@@ -190,7 +190,7 @@ export default function PaymentMethods() {
                     }
                 </Swiper>
             </div>
-            <div className="max-w-screen-2xl mx-auto pb-5">
+            <div className="  pb-5">
                 <div className='flex justify-between'> <div className='flex justify-start'><p className='text-white text-sm font-medium'>Games <span className='text-textcl'>Providers</span></p></div>
                     <div className='flex justify-end items-center relative h-8 mt-2'>
                         <div className='relative flex justify-center items-center mr-6'>
@@ -243,7 +243,7 @@ export default function PaymentMethods() {
                     }
                 </Swiper>
             </div>
-            <div className="max-w-screen-2xl mx-auto pb-5">
+            <div className="  pb-5">
                 <div className='flex justify-between'> <div className='flex justify-start'><p className='text-white text-sm font-medium'>Recomended <span className='text-textcl'>Live Games</span></p></div>
                     <div className='flex justify-end items-center relative h-8 mt-2'>
                         <div className='relative flex justify-center items-center mr-6'>
@@ -297,7 +297,7 @@ export default function PaymentMethods() {
                     }
                 </Swiper>
             </div>
-            <div className="max-w-screen-2xl mx-auto pb-5">
+            <div className="pb-5">
                 <div className='flex justify-between'> <div className='flex justify-start'><p className='text-white text-sm font-medium'>TVBet <span className='text-textcl'>Games</span></p></div>
                     <div className='flex justify-end items-center relative h-8 mt-2'>
                         <div className='relative flex justify-center items-center mr-6'>

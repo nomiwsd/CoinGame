@@ -8,10 +8,18 @@ import { BsGlobe } from "react-icons/bs";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import Modal from './Modal';
 import registerimg from '../../assets/Registerimg.png'
+import { Languages } from '../../utils/data';
+import { useSidebar } from '../Homepage/SidebarContext';
 export default function Header() {
     const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+    const [isForgetModalOpen, setIsForgetModalOpen] = useState(false);
+    const [isLangModalOpen, setIsLangModalOpen] = useState(false);
     const [selectedButton, setSelectedButton] = useState(1);
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [password, setPassword] = useState('');
+    const [selectedLanguage, setSelectedLanguage] = useState(null);
+
     const handleButtonClick = (buttonNumber) => {
         setSelectedButton(buttonNumber);
     };
@@ -29,20 +37,42 @@ export default function Header() {
     const closeLoginModal = () => {
         setIsLoginModalOpen(false);
     };
-    const [passwordVisible, setPasswordVisible] = useState(false);
-    const [password, setPassword] = useState('');
+    const openForgetModal = () => {
+        setIsForgetModalOpen(true);
+    };
+
+    const closeForgetModal = () => {
+        setIsForgetModalOpen(false);
+    };
+    const openLangModal = () => {
+        setIsLangModalOpen(true);
+    };
+
+    const closeLangModal = () => {
+        setIsLangModalOpen(false);
+    };
+
+    const handleLanguageSelect = (language) => {
+        setSelectedLanguage(language);
+    };
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
+    const { sidebarOpen, setSidebarOpen } = useSidebar();
+
+    const toggleSidebar = () => {
+      setSidebarOpen(!sidebarOpen);
+    };
+  
     return (
-        <header className="bg-primarycl text-white max-h-20 py-2 px-2 md:px-4">
+        <header className="bg-primarycl text-white sticky top-0 z-50 max-h-20 py-2 px-2 md:px-4">
             <nav className="flex justify-between items-center gap-2 max-w-screen-2xl mx-auto">
                 <div className="flex justify-between items-center gap-4">
                     <div className="bg-secondarycl flex flex-col justify-center items-center rounded-3xl px-2 h-14">
                         <img src={logo} alt="Logo" className='h-12 mt-2' />
                     </div>
-                    <div className='w-8 h-8 rounded-full border border-bordercl hidden md:flex justify-center items-center'>
+                    <div className='w-8 h-8 rounded-full border border-bordercl hidden md:flex justify-center items-center' onClick={toggleSidebar}>
                         <MdMenu className='text-bordercl text-2xl font-black' />
                     </div>
                     <div className='bg-secondarycl rounded-full h-10 hidden md:flex justify-center items-center'>
@@ -83,7 +113,7 @@ export default function Header() {
                                     <label htmlFor="Email" className='text-sm font-medium text-[#9DB8E1]'>Email or Phone</label>
                                     <input type="text" placeholder='Email or Phone' className='py-2 px-2 bg-primarycl text-[#808A97] w-full rounded' />
                                 </div>
-                                <div className='flex flex-col justify-start items-start gap-1 my-2'>
+                                <div className='flex flex-col gap-1 my-2'>
                                     <label htmlFor="password" className='text-sm font-medium text-[#9DB8E1]'>Password</label>
                                     <div className="relative w-full">
                                         <input
@@ -101,12 +131,55 @@ export default function Header() {
                                             {passwordVisible ? <IoEyeOutline className="h-6 w-6 text-gray-400" /> : <IoEyeOffOutline className="h-6 w-6 text-gray-400" />}
                                         </button>
                                     </div>
-                                   <p className='text-end text-sm font-medium text-[#9DB8E1]'>Forgot your Password</p>
-                                    <button className='py-3 px-4 bg-btncl text-white rounded-md w-full'>Log In</button>
-                                <hr className='w-full border-b border-b-secondarycl'/>
+                                    <div className='flex justify-end items-center pb-1'>
+                                        <button className='underline border-none bg-transparent text-sm font-medium text-[#9DB8E1]' onClick={() => {
+                                            closeLoginModal();
+                                            openForgetModal();
+                                        }}>Forgot your Password</button>
+                                    </div>
 
-                                <p className='text-sm font-medium text-[#808A97] text-center'>Join BN.GAME today!  <span className='text-textcl'>Register Now </span></p>
+                                    <button className='py-3 px-4 bg-btncl text-white rounded-md w-full'>Log In</button>
+                                    <hr className='w-full border-b border-b-secondarycl' />
+
+                                    <p className='text-sm font-medium text-[#808A97] text-center'>Join BN.GAME today!  <button className='bg-transparent border-none text-textcl' onClick={() => {
+                                        closeLoginModal();
+                                        openRegisterModal();
+                                    }}>
+                                        Register Now</button> </p>
                                 </div>
+                            </div>
+                        </div>
+                    </Modal>
+                    <Modal isOpen={isForgetModalOpen} onClose={closeForgetModal}>
+                        <div className='flex justify-center items-center h-full'>
+                            <div className='w-full px-4 py-4'>
+                                <div className='flex justify-end items-center'>
+                                    <MdOutlineClose onClick={closeForgetModal} className='text-lg font-bold' />
+                                </div>
+                                <p className='text-center text-white'>
+                                    Lost your password?
+                                </p>
+                                <div className='flex justify-center items-center'> <img src={logo} alt="" className='py-5' />  </div>
+                                <div className='flex flex-col'>
+                                    <p className='text-base font-medium text-white text-center'>Obtaining a new password is easy:</p>
+                                    <ol className='px-6 text-white'>
+                                        <li className='text-base font-medium text-white'>1. Please enter the email address you used to register with BN.GAME.</li>
+                                        <li className='text-base font-medium text-white'>2. {`Click on "Get New Password." `}</li>
+                                        <li className='text-base font-medium text-white'>
+                                            3. Follow the additional instructions provided.
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div className='flex flex-col justify-start items-start gap-1 my-4'>
+                                    <label htmlFor="Email" className='text-sm font-medium text-[#9DB8E1]'>Your Registration Details</label>
+                                    <input type="text" placeholder='Email or Phone' className='py-2 px-2 bg-primarycl text-[#808A97] w-full rounded' />
+                                </div>
+                                <button className='py-3 px-4 bg-btncl text-white rounded-md w-full'>Get New Password</button>
+                                <button className='py-3 px-4 bg-transparent border border-[#2283F6] text-white rounded-md w-full my-2' onClick={() => {
+                                    closeForgetModal()
+                                    openLoginModal()
+                                }}>Back</button>
+
                             </div>
                         </div>
                     </Modal>
@@ -114,7 +187,7 @@ export default function Header() {
                     <button className='bg-btncl text-white rounded-md hover:bg-white hover:text-btncl px-4 py-2 text-base font-medium' onClick={openRegisterModal}>Registration</button>
                     <Modal isOpen={isRegisterModalOpen} onClose={closeRegisterModal}>
                         <div className='flex justify-center items-center h-full'>
-                                <img src={registerimg} alt="Wait for Internet" className='hidden md:flex md:w-1/2 h-[530px] ' />
+                            <img src={registerimg} alt="Wait for Internet" className='hidden md:flex md:w-1/2 h-[530px] ' />
                             <div className='w-full md:w-1/2 px-4 py-4'>
                                 <div className='flex justify-end items-center'>
                                     <MdOutlineClose onClick={closeRegisterModal} className='text-lg font-bold' />
@@ -133,7 +206,7 @@ export default function Header() {
                                             type={passwordVisible ? 'text' : 'password'}
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
-                                            className="py-2 px-4  bg-primarycl rounded-md focus:outline-none focus:ring-2 focus:border-transparent"
+                                            className="py-2 px-4  bg-primarycl rounded-md focus:outline-none focus:ring-2 focus:border-transparent w-full"
                                             placeholder="Enter password"
                                         />
                                         <button
@@ -154,23 +227,49 @@ export default function Header() {
                                         </label>
                                     </div>
                                     <button className='py-3 px-4 bg-btncl text-white rounded-md w-full'>Submit</button>
-                                <hr className='w-full border-b border-b-secondarycl'/>
+                                    <hr className='w-full border-b border-b-secondarycl' />
 
-                                <p className='text-sm font-medium text-[#808A97] text-center'>Already Registered? <span className='text-textcl'>Log in</span></p>
+                                    <p className='text-sm font-medium text-[#808A97] text-center'>Already Registered? <button className='bg-transparent border-none text-textcl' onClick={() => {
+                                        closeRegisterModal()
+                                        openLoginModal()
+                                    }}
+                                    >Log in</button></p>
                                 </div>
                             </div>
                         </div>
                     </Modal>
 
                     <div className="relative py-2 hidden md:block">
-                        <div className="absolute top-1 right-0">
-                            <p className="flex w-1 h-1 items-center justify-center rounded-full bg-[#FFDC00] p-2 text-black">3</p>
+                        <div className="absolute top-1 -right-1">
+                            <p className="flex w-1 h-1 items-center justify-center rounded-full text-xs font-extralight bg-[#FFDC00] p-2 text-black">3</p>
                         </div>
                         {/* icon */}
 
                         <RiMessage2Fill className='text-3xl text-bordercl' />
                     </div>
-                    <BsGlobe className='text-3xl text-bordercl hidden md:block' />
+                    <BsGlobe className='text-3xl text-bordercl hidden md:block' onClick={openLangModal} />
+                    <Modal isOpen={isLangModalOpen} onClose={closeLangModal}>
+                        <div className='flex justify-center items-center h-full'>
+                            <div className='w-full py-2'>
+                                <div className='flex justify-between items-center border-b border-b-bordercl px-4'>
+                                    <p className='text-sm font-normal h-6 w-20 border-b border-b-btncl'>Language</p>
+                                    <MdOutlineClose onClick={closeLangModal} className='text-lg font-bold' />
+                                </div>
+                                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-4 py-2'>
+                                    {Languages && Languages.map((language, index) => (
+                                        <button
+                                            key={index}
+                                            className={`px-4 py-2 text-sm font-normal rounded-md ${selectedLanguage === language ? 'bg-primarycl' : 'bg-transparent'
+                                                }`}
+                                            onClick={() => handleLanguageSelect(language)}
+                                        >
+                                            {language}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </Modal>
                 </div>
             </nav>
         </header>

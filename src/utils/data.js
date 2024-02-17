@@ -622,3 +622,21 @@ export const TableData=[
         Payout:'5.96594638'
     },
 ]
+export const Languages=['English', 'French', 'German','한국어',
+'عربى',
+'Português',
+'Suomi',
+'اردو',
+'Marathi',
+'Tiếng việt',
+'Français',
+'Hindi',
+'Руccкий',
+'Polski',
+'Українська',
+'Tamil',
+'Indonesian',
+'Español',
+'Türkçe',
+'Deutsch',
+];
