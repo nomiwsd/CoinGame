@@ -49,4 +49,11 @@
       display: none !important;
     }
   }
+  .scroll-smooth::-webkit-scrollbar {
+    display: none;
+  }
   
+  .scroll-smooth {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }

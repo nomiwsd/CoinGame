@@ -4,10 +4,11 @@ import { createContext, useContext, useState } from "react";
 const SidebarContext = createContext();
 
 export const SidebarProvider = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [msgbarOpen, setMsgbarOpen] = useState(false);
 
   return (
-    <SidebarContext.Provider value={{ sidebarOpen, setSidebarOpen }}>
+    <SidebarContext.Provider value={{ sidebarOpen, setSidebarOpen,msgbarOpen,setMsgbarOpen }}>
       {children}
     </SidebarContext.Provider>
   );

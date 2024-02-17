@@ -96,6 +96,18 @@ import TVBetGame7 from '../assets/TVBetGame (7).png'
 import TVBetGame8 from '../assets/TVBetGame (8).png'
 import TVBetGame9 from '../assets/TVBetGame (9).png'
 
+import Crypto1 from '../assets/Cryptocurrency.png'
+import Crypto2 from '../assets/Cryptocurrency (1).png'
+import Crypto3 from '../assets/Cryptocurrency (2).png'
+import Crypto4 from '../assets/Cryptocurrency (3).png'
+import Crypto5 from '../assets/Cryptocurrency (4).png'
+import Crypto6 from '../assets/Cryptocurrency (5).png'
+import Crypto7 from '../assets/Cryptocurrency (6).png'
+import Crypto8 from '../assets/Cryptocurrency (7).png'
+import Crypto9 from '../assets/Cryptocurrency (8).png'
+import Crypto10 from '../assets/Cryptocurrency (9).png'
+import Crypto11 from '../assets/Cryptocurrency (10).png'
+import Crypto12 from '../assets/Cryptocurrency (11).png'
 
 export const HeroSections = [
     {
@@ -640,3 +652,54 @@ export const Languages=['English', 'French', 'German','한국어',
 'Türkçe',
 'Deutsch',
 ];
+
+export const Cryptos=[
+    {
+    Image:Crypto1,
+    title:'BTC',
+    },
+    {
+    Image:Crypto2,
+    title:'BTC',
+    },
+    {
+    Image:Crypto3,
+    title:'BTC',
+    },
+    {
+    Image:Crypto4,
+    title:'BTC',
+    },
+    {
+    Image:Crypto5,
+    title:'BTC',
+    },
+    {
+    Image:Crypto6,
+    title:'BTC',
+    },
+    {
+    Image:Crypto7,
+    title:'BTC',
+    },
+    {
+    Image:Crypto8,
+    title:'BTC',
+    },
+    {
+    Image:Crypto9,
+    title:'BTC',
+    },
+    {
+    Image:Crypto10,
+    title:'BTC',
+    },
+    {
+    Image:Crypto11,
+    title:'BTC',
+    },
+    {
+    Image:Crypto12,
+    title:'BTC',
+    },
+]

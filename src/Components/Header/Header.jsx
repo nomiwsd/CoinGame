@@ -13,6 +13,7 @@ import { useSidebar } from '../Homepage/SidebarContext';
 export default function Header() {
     const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+    const [isGLoginModalOpen, setIsGLoginModalOpen] = useState(false);
     const [isForgetModalOpen, setIsForgetModalOpen] = useState(false);
     const [isLangModalOpen, setIsLangModalOpen] = useState(false);
     const [selectedButton, setSelectedButton] = useState(1);
@@ -37,6 +38,14 @@ export default function Header() {
     const closeLoginModal = () => {
         setIsLoginModalOpen(false);
     };
+
+    const openGLoginModal = () => {
+        setIsGLoginModalOpen(true);
+    };
+
+    const closeGLoginModal = () => {
+        setIsGLoginModalOpen(false);
+    };
     const openForgetModal = () => {
         setIsForgetModalOpen(true);
     };
@@ -59,14 +68,17 @@ export default function Header() {
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
-    const { sidebarOpen, setSidebarOpen } = useSidebar();
+    const { sidebarOpen, setSidebarOpen, msgbarOpen, setMsgbarOpen } = useSidebar();
 
     const toggleSidebar = () => {
-      setSidebarOpen(!sidebarOpen);
+        setSidebarOpen(!sidebarOpen);
     };
-  
+
+    const toggleMsgbar = () => {
+        setMsgbarOpen(!msgbarOpen);
+    };
     return (
-        <header className="bg-primarycl text-white sticky top-0 z-50 max-h-20 py-2 px-2 md:px-4">
+        <header className="bg-primarycl text-white sticky top-0 z-[100] max-h-20 py-2 px-2 md:px-4">
             <nav className="flex justify-between items-center gap-2 max-w-screen-2xl mx-auto">
                 <div className="flex justify-between items-center gap-4">
                     <div className="bg-secondarycl flex flex-col justify-center items-center rounded-3xl px-2 h-14">
@@ -134,11 +146,16 @@ export default function Header() {
                                     <div className='flex justify-end items-center pb-1'>
                                         <button className='underline border-none bg-transparent text-sm font-medium text-[#9DB8E1]' onClick={() => {
                                             closeLoginModal();
-                                            openForgetModal();
+                                            -      openForgetModal();
                                         }}>Forgot your Password</button>
                                     </div>
 
                                     <button className='py-3 px-4 bg-btncl text-white rounded-md w-full'>Log In</button>
+                                    <p className='text-white text-lg font-medium text-center'>OR</p>
+                                    <p className='text-base font-medium text-[#808A97] text-center' onClick={() => {
+                                        openGLoginModal();
+                                        closeLoginModal()
+                                    }}>Continue With Google</p>
                                     <hr className='w-full border-b border-b-secondarycl' />
 
                                     <p className='text-sm font-medium text-[#808A97] text-center'>Join BN.GAME today!  <button className='bg-transparent border-none text-textcl' onClick={() => {
@@ -147,6 +164,101 @@ export default function Header() {
                                     }}>
                                         Register Now</button> </p>
                                 </div>
+                            </div>
+                        </div>
+                    </Modal>
+                    <Modal isOpen={isGLoginModalOpen} onClose={closeGLoginModal}>
+                        <div className='flex justify-center items-center h-full'>
+                            <div className='w-full px-4 py-4'>
+                                <div className='flex justify-between items-center'>
+                                    <p className='text-center text-white'>Last Step</p>
+                                    <MdOutlineClose onClick={closeGLoginModal} className='text-lg font-bold' />
+                                </div>
+                                <p className='text-left text-white text-base font-medium mt-4'>One more step to unlock your FREE SPIN</p>
+                                <p className='text-xs font-normal text-white'>To make BN.GAME a better place, we would love to know more about you. Thanks a lot for your patience!</p>
+                                <div className='flex flex-col md:flex-row gap-3 py-2 w-full'>
+                                    <div className='flex flex-col  gap-1 w-full'>
+                                        <label htmlFor="FirstName" className='text-sm font-medium text-[#9DB8E1]'>First Name</label>
+                                        <input type="text" placeholder='FirstName' className='py-2 px-2 bg-primarycl text-[#808A97] w-full rounded' />
+                                    </div>
+                                    <div className='flex flex-col gap-1 w-full'>
+                                        <label htmlFor="lastname" className='text-sm font-medium text-[#9DB8E1]'>Last Name</label>
+                                        <input
+                                            type='text'
+                                            className="py-2 px-2 bg-primarycl text-[#808A97] w-full rounded"
+                                            placeholder="LastName"
+                                        />
+                                    </div>
+                                </div>
+                                <div className='flex flex-col md:flex-row gap-3 py-2'>
+                                    <div className='flex flex-col justify-start items-start gap-1'>
+                                        <label htmlFor="FirstName" className='text-sm font-medium text-[#9DB8E1]'>Date of Birth</label>
+                                        <div className='flex gap-2'>
+                                            <input type="text" placeholder='DD' className='py-2 px-2 bg-primarycl text-[#808A97] w-full rounded' />
+                                            <input
+                                                type='text'
+                                                className="py-2 px-2 bg-primarycl text-[#808A97] w-full rounded"
+                                                placeholder="MM"
+                                            />
+                                            <input
+                                                type='text'
+                                                className="py-2 px-2 bg-primarycl text-[#808A97] w-full rounded"
+                                                placeholder="YY"
+                                            />
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div className='flex flex-col md:flex-row gap-3 py-2 w-full'>
+                                    <div className='flex flex-col  gap-1 w-full'>
+                                        <label htmlFor="FirstName" className='text-sm font-medium text-[#9DB8E1]'>Phone Number</label>
+                                        <div className='flex gap-2'>
+                                            <select name="code" id="" className='py-2 px-2 bg-primarycl text-[#808A97] w-16 rounded'>
+                                                <option value="" selected>+92</option>
+                                                <option value="">+91</option>
+                                                <option value="">+93</option>
+                                                <option value="">+94</option>
+                                                <option value="">+95</option>
+                                                <option value="">+96</option>
+                                            </select>
+                                            <input type="number" placeholder='Phone Number' className='py-2 px-2 bg-primarycl text-[#808A97] w-full rounded' />
+                                        </div>
+                                    </div>
+                                    <div className='flex flex-col gap-1 w-full'>
+                                        <label htmlFor="Gender" className='text-sm font-medium text-[#9DB8E1]'>Gender</label>
+
+                                        <select
+                                            className="py-2 px-2 bg-primarycl text-[#808A97] w-full rounded"
+                                        >
+                                            <option value="">Male </option>
+                                            <option value="">Female </option>
+                                            <option value="">  </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <p className='text-base font-medium text-white'>Settings</p>
+                                <div className='flex flex-col md:flex-row gap-3 py-2 w-full'>
+                                    <div className='flex flex-col  gap-1 w-full'>
+                                        <label htmlFor="Language" className='text-sm font-medium text-[#9DB8E1]'>Language</label>
+                                        <select name="Language" id="" className='py-2 px-2 bg-primarycl text-[#808A97] w-full rounded'>
+                                            <option value="" selected>English</option>
+                                            <option value="">Urdu</option>
+                                            <option value="">Arabic</option>
+                                            <option value="">Hindi</option>
+                                            <option value="">Portegese</option>
+                                        </select>
+                                    </div>
+                                    <div className='flex flex-col gap-1 w-full'>
+                                        <label htmlFor="Country" className='text-sm font-medium text-[#9DB8E1]'>Country</label>
+                                        <select className="py-2 px-2 bg-primarycl text-[#808A97] w-full rounded">
+                                            <option value="">India </option>
+                                            <option value="">Pakistan </option>
+                                            <option value="">Uinted Kingdom </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button className='bg-btncl text-white py-2 px-4 rounded-md w-full my-3'>Update</button>
                             </div>
                         </div>
                     </Modal>
@@ -184,7 +296,7 @@ export default function Header() {
                         </div>
                     </Modal>
 
-                    <button className='bg-btncl text-white rounded-md hover:bg-white hover:text-btncl px-4 py-2 text-base font-medium' onClick={openRegisterModal}>Registration</button>
+                    <button className='bg-btncl text-white rounded-md hover:bg-white hover:text-btncl px-2 py-2 text-base font-medium' onClick={openRegisterModal}>Registration</button>
                     <Modal isOpen={isRegisterModalOpen} onClose={closeRegisterModal}>
                         <div className='flex justify-center items-center h-full'>
                             <img src={registerimg} alt="Wait for Internet" className='hidden md:flex md:w-1/2 h-[530px] ' />
@@ -227,6 +339,7 @@ export default function Header() {
                                         </label>
                                     </div>
                                     <button className='py-3 px-4 bg-btncl text-white rounded-md w-full'>Submit</button>
+
                                     <hr className='w-full border-b border-b-secondarycl' />
 
                                     <p className='text-sm font-medium text-[#808A97] text-center'>Already Registered? <button className='bg-transparent border-none text-textcl' onClick={() => {
@@ -239,7 +352,7 @@ export default function Header() {
                         </div>
                     </Modal>
 
-                    <div className="relative py-2 hidden md:block">
+                    <div className="relative py-2 hidden md:block" onClick={toggleMsgbar}>
                         <div className="absolute top-1 -right-1">
                             <p className="flex w-1 h-1 items-center justify-center rounded-full text-xs font-extralight bg-[#FFDC00] p-2 text-black">3</p>
                         </div>

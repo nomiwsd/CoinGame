@@ -11,6 +11,7 @@ export default {
                 mainbg: '#0F1923',
                 secondarycl: '#202A39',
                 bordercl:'#93ACD3',
+                dashboardlinks:'#98A7B5',
                 footertext:'#99A4B0CC',
                 footerlinks:'#C0CBD5',
                 btncl: '#3BC117B2',
