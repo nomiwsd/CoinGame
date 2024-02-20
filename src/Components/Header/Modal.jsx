@@ -6,7 +6,7 @@ const Modal = ({ isOpen, children }) => {
   }
 
   return (
-    <div className="fixed top-20 md:inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div className="fixed top-20 left-0 right-0 bottom-0 md:inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <div className="flex items-end justify-center min-h-screen  text-center sm:block sm:p-0">
         <div className="fixed inset-0 bg-secondarycl bg-opacity-75 transition-opacity" aria-hidden="true"></div>
         <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
