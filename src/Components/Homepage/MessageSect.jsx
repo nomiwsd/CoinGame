@@ -10,7 +10,7 @@ export default function MessageSect({ open }) {
         setMsgbarOpen(!msgbarOpen);
     };
     return (
-        <div className={`relative h-full md:h-[500px] md:max-h-[650px] bg-primarycl ${open ? "w-60 md:block" : 'hidden'}`}>
+        <div className={`relative h-full md:h-[500px] md:max-h-[650px] bg-primarycl ${open ? "w-full md:w-60 md:block" : 'hidden'}`}>
             <div className="bg-secondarycl px-2 py-2 flex justify-between items-center">
                 <p className="text-sm font-normal text-dashboardlinks">Global</p>
                 <div className="flex gap-2">

@@ -6,9 +6,18 @@ const SidebarContext = createContext();
 export const SidebarProvider = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [msgbarOpen, setMsgbarOpen] = useState(false);
+  const [isQuestModalOpen, setIsQuestModalOpen] = useState(false);
+
+  const openQuestModal = () => {
+    setIsQuestModalOpen(true);
+  };
+
+  const closeQuestModal = () => {
+    setIsQuestModalOpen(false);
+  };
 
   return (
-    <SidebarContext.Provider value={{ sidebarOpen, setSidebarOpen,msgbarOpen,setMsgbarOpen }}>
+    <SidebarContext.Provider value={{ sidebarOpen, setSidebarOpen,msgbarOpen,setMsgbarOpen, isQuestModalOpen, openQuestModal, closeQuestModal }}>
       {children}
     </SidebarContext.Provider>
   );
